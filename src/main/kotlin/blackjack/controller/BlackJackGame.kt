@@ -1,6 +1,7 @@
 package blackjack.controller
 
 import blackjack.model.Dealer
+import blackjack.model.GameStatistics
 import blackjack.model.Player
 import blackjack.view.InputView
 import blackjack.view.OutputView
@@ -17,6 +18,8 @@ class BlackJackGame {
         dealingPlayersCards()
         dealingDealersCards()
         calculateResults()
+        val results = GameStatistics.createStatistics(players, dealer)
+        results.forEach { println(it) }
     }
 
     fun createPlayers() {
